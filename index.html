@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curtiss Construction | High-end remodels on the Oregon Coast</title>
+  <meta name="description" content="High-end interior remodels & custom bathrooms. Licensed • Bonded • Insured. Get a fast estimate and schedule a walkthrough." />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="Curtiss Construction" />
+  <meta property="og:description" content="High-end interior remodels & custom bathrooms. Fast estimates. Oregon Coast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://curtissconstruction.com/" />
+  <meta property="og:image" content="https://curtissconstruction.com/og.jpg" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#000;
+      --panel:#0b0b0b;
+      --panel2:#111;
+      --text:#f4f4f4;
+      --muted:#b9b9b9;
+      --line:rgba(255,255,255,.10);
+      --accent:#6ef3e8; /* subtle mint, matches Netlify vibes but still classy */
+      --accent2:#ffffff;
+      --shadow: 0 12px 45px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(110,243,232,.10), transparent 60%),
+                  radial-gradient(900px 450px at 10% 10%, rgba(255,255,255,.06), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 80px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{max-width:var(--max); margin:0 auto; padding:14px 18px; display:flex; align-items:center; gap:12px; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+    .mark{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(110,243,232,.20), rgba(255,255,255,.10));
+      border:1px solid rgba(110,243,232,.30);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      font-weight:800; letter-spacing:.5px;
+    }
+    .brand strong{font-weight:800; letter-spacing:.2px}
+    .nav{display:flex; gap:14px; align-items:center}
+    .nav a{font-size:14px; text-decoration:none; color:var(--muted)}
+    .nav a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:12px; border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      text-decoration:none; font-weight:650; font-size:14px;
+    }
+    .btn:hover{border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
+    .btn.primary{
+      border-color: rgba(110,243,232,.35);
+      background: linear-gradient(135deg, rgba(110,243,232,.20), rgba(255,255,255,.08));
+    }
+    .hero{
+      padding:44px 0 18px;
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:22px;
+    }
+    @media (max-width: 860px){ .hero{grid-template-columns: 1fr; padding-top:26px} .nav{display:none} }
+    h1{
+      margin:0 0 12px;
+      font-size: 54px; line-height: 1.02; letter-spacing:-.8px;
+    }
+    @media (max-width: 520px){ h1{font-size:40px} }
+    .sub{
+      color:var(--muted);
+      font-size: 18px;
+      margin: 0 0 18px;
+    }
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin: 14px 0 22px}
+    .badge{
+      padding:8px 10px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.03);
+      font-size:13px; color:var(--muted);
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel.pad{padding:18px}
+    .cta-grid{display:grid; grid-template-columns: 1fr; gap:10px}
+    .cta-grid .btn{width:100%}
+    .mini{font-size:13px; color:var(--muted); margin-top:10px}
+    .section{margin-top:26px}
+    .section h2{margin:0 0 10px; font-size:22px}
+    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:14px}
+    @media (max-width: 860px){ .grid3{grid-template-columns: 1fr} }
+    .card{padding:16px; border-radius:16px; border:1px solid var(--line); background: rgba(0,0,0,.35)}
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .split{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    @media (max-width: 860px){ .split{grid-template-columns: 1fr} }
+    .divider{height:1px; background:var(--line); margin:18px 0}
+    .form label{display:block; font-size:13px; color:var(--muted); margin:10px 0 6px}
+    .form input,.form select,.form textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.55);
+      color: var(--text);
+      outline:none;
+    }
+    .form input:focus,.form select:focus,.form textarea:focus{
+      border-color: rgba(110,243,232,.45);
+      box-shadow: 0 0 0 4px rgba(110,243,232,.12);
+    }
+    .form textarea{min-height:110px; resize:vertical}
+    .form .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 520px){ .form .row{grid-template-columns: 1fr} }
+    .form .submit{margin-top:12px}
+    .trust{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13px
+    }
+    .trust span{border:1px solid var(--line); border-radius:999px; padding:7px 10px; background: rgba(255,255,255,.03)}
+    .footer{margin-top:26px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+    .sticky{
+      position:fixed; right:16px; bottom:16px; z-index:60;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .sticky a{box-shadow: var(--shadow)}
+    .fine{color:var(--muted); font-size:12px}
+    .kpi{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .kpi .badge{background: rgba(110,243,232,.08); border-color: rgba(110,243,232,.20); color: var(--text)}
+  </style>
+
+  <!-- LocalBusiness Schema (edit phone/service area when ready) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"GeneralContractor",
+    "name":"Curtiss Construction",
+    "url":"https://curtissconstruction.com/",
+    "areaServed":"Oregon Coast",
+    "description":"High-end interior remodels and custom bathrooms. Licensed • Bonded • Insured.",
+    "email":"info@curtissconstruction.com"
+  }
+  </script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">
+        <div class="mark">CC</div>
+        <div>
+          <strong>Curtiss Construction</strong><br />
+          <span class="fine">Oregon Coast</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#estimate">Get estimate</a>
+      </nav>
+      <a class="btn primary" href="#estimate">Get a fast estimate</a>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div>
+        <h1>High-end remodels.<br/>Crafted clean &amp; tight.</h1>
+        <p class="sub">
+          Custom bathrooms, kitchens, and interior remodels done the way you’d want it in your own home.
+          Fast estimates. Clear scope. Clean job sites.
+        </p>
+
+        <div class="badges" aria-label="Highlights">
+          <div class="badge">Licensed • Bonded • Insured</div>
+          <div class="badge">Bathrooms • Kitchens • Interiors</div>
+          <div class="badge">Oregon Coast</div>
+          <div class="badge">High-end finishes</div>
+        </div>
+
+        <div class="kpi">
+          <div class="badge">✅ 24-hour response goal</div>
+          <div class="badge">✅ Detailed estimate</div>
+          <div class="badge">✅ Walkthrough scheduling</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="split">
+          <div class="card">
+            <h3>Want pricing today?</h3>
+            <p>Fill out the quick form and we’ll reply with next steps (and what we need to quote accurately).</p>
+          </div>
+          <div class="card">
+            <h3>Prefer to talk?</h3>
+            <p>Add your number in the form and mark “Phone call” — we’ll call you back.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel pad" id="estimate" aria-label="Estimate form">
+        <h2 style="margin:0 0 10px;">Get a fast estimate</h2>
+        <p class="fine" style="margin:0 0 12px;">This goes straight to your inbox (Netlify Forms). No spam.</p>
+
+        <!-- Netlify form: submissions appear in Netlify → Forms -->
+        <form class="form" name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+          <input type="hidden" name="form-name" value="lead" />
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(xxx) xxx-xxxx" />
+            </div>
+          </div>
+
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" autocomplete="email" required />
+
+          <div class="row">
+            <div>
+              <label for="city">City / Area</label>
+              <input id="city" name="city" placeholder="Tillamook • Rockaway • Manzanita • etc." required />
+            </div>
+            <div>
+              <label for="type">Project type</label>
+              <select id="type" name="project_type" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Bathroom remodel</option>
+                <option>Kitchen remodel</option>
+                <option>Whole interior remodel</option>
+                <option>Tile / shower</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="budget">Budget range (optional)</label>
+              <select id="budget" name="budget">
+                <option value="" selected>Prefer not to say</option>
+                <option>$10k–$25k</option>
+                <option>$25k–$50k</option>
+                <option>$50k–$100k</option>
+                <option>$100k+</option>
+              </select>
+            </div>
+            <div>
+              <label for="timeline">Timeline</label>
+              <select id="timeline" name="timeline" required>
+                <option value="" disabled selected>Select one</option>
+                <option>ASAP</option>
+                <option>1–2 months</option>
+                <option>3–6 months</option>
+                <option>Planning / just pricing</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="details">Tell us what you want done</label>
+          <textarea id="details" name="details" placeholder="Example: master bath — demo tub, tile shower, new vanity, fixtures, flooring..."></textarea>
+
+          <label for="contact_pref">Best way to reach you?</label>
+          <select id="contact_pref" name="contact_preference" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Text</option>
+            <option>Phone call</option>
+            <option>Email</option>
+          </select>
+
+          <div class="submit">
+            <button class="btn primary" type="submit" style="width:100%;">Send request</button>
+          </div>
+
+          <p class="mini">By submitting, you agree to be contacted about your project. No marketing list.</p>
+        </form>
+
+        <div class="divider"></div>
+        <div class="trust" aria-label="Trust statements">
+          <span>Clean job sites</span>
+          <span>Clear scope</span>
+          <span>High-end finish work</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Services</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Custom bathrooms</h3>
+          <p>Tile showers, waterproofing, vanities, fixtures, lighting, ventilation, and finish work.</p>
+        </div>
+        <div class="card">
+          <h3>Kitchens &amp; interiors</h3>
+          <p>Cabinet installs, trim, drywall, paint-ready finishes, flooring, and layout upgrades.</p>
+        </div>
+        <div class="card">
+          <h3>High-end remodels</h3>
+          <p>Detailed planning, tight tolerances, and craftsmanship-first decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <h2>How it works</h2>
+      <div class="split">
+        <div class="panel pad">
+          <h3 style="margin:0 0 6px;">1) Quick estimate request</h3>
+          <p class="fine" style="margin:0;">Submit the form. We respond with questions (if needed) and scheduling options.</p>
+          <div class="divider"></div>
+          <h3 style="margin:0 0 6px;">2) Walkthrough + scope</h3>
+          <p class="fine" style="margin:0;">On-site walkthrough to verify dimensions, conditions, and finish choices.</p>
+          <div class="divider"></div>
+          <h3 style="margin:0 0 6px;">3) Written estimate</h3>
+          <p class="fine" style="margin:0;">Clear scope, assumptions, allowances, and timeline.</p>
+        </div>
+        <div class="panel pad">
+          <h3 style="margin:0 0 6px;">What we need to quote fast</h3>
+          <ul class="fine" style="margin:10px 0 0; padding-left:18px;">
+            <li>Project type + city</li>
+            <li>Photos (optional, but helpful)</li>
+            <li>Rough timeline</li>
+            <li>Any “must haves” (heated floor, niche, glass, etc.)</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="fine" style="margin:0;">Want to attach photos? After submitting, reply to the confirmation email with photos — or email them to <strong>info@curtissconstruction.com</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>FAQ</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Do you service my area?</h3>
+          <p>We focus on the Oregon Coast. Put your city in the form and we’ll confirm availability.</p>
+        </div>
+        <div class="card">
+          <h3>Do you take small jobs?</h3>
+          <p>Usually full bathrooms, kitchens, and interior remodel scopes — but ask. If it’s a fit, we’ll tell you.</p>
+        </div>
+        <div class="card">
+          <h3>How soon can you start?</h3>
+          <p>Depends on scope and permits/materials. We’ll give the earliest realistic start date in the estimate.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel pad">
+        <h2 style="margin:0 0 8px;">Ready for a quote?</h2>
+        <p class="fine" style="margin:0 0 12px;">Tap the button and fill the quick form — we’ll respond fast.</p>
+        <a class="btn primary" href="#estimate">Get a fast estimate</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><strong>Curtiss Construction LLC</strong></div>
+      <div class="fine">High-end interior remodels & custom bathrooms • Oregon Coast</div>
+      <div class="fine">Email: <a href="mailto:info@curtissconstruction.com">info@curtissconstruction.com</a></div>
+      <div class="fine">© <span id="y"></span> Curtiss Construction LLC</div>
+    </footer>
+  </main>
+
+  <div class="sticky" aria-label="Quick actions">
+    <!-- Replace the phone number when you’re ready -->
+    <a class="btn primary" href="#estimate">Request estimate</a>
+    <a class="btn" href="mailto:info@curtissconstruction.com">Email</a>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
