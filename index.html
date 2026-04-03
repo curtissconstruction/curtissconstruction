@@ -785,26 +785,26 @@ select:-webkit-autofill:focus {
   const closeSuccessPopup = document.getElementById("closeSuccessPopup");
 
   function updateSubmitState() {
-    if (!estimateForm || !estimateSubmit) return;
+  if (!estimateForm || !estimateSubmit) return;
 
-    const fields = estimateForm.querySelectorAll("input, textarea, select");
-    let hasValue = false;
+  const textFields = estimateForm.querySelectorAll("input[type='text'], input[type='email'], input[type='tel'], textarea");
+  let hasValue = false;
 
-    fields.forEach((field) => {
-      if (field.name === "bot-field") return;
+  textFields.forEach((field) => {
+    if (field.name === "bot-field") return;
 
-      const value = typeof field.value === "string" ? field.value.trim() : "";
-      if (value !== "") {
-        hasValue = true;
-      }
-    });
-
-    if (hasValue) {
-      estimateSubmit.classList.add("is-active");
-    } else {
-      estimateSubmit.classList.remove("is-active");
+    const value = typeof field.value === "string" ? field.value.trim() : "";
+    if (value !== "") {
+      hasValue = true;
     }
+  });
+
+  if (hasValue) {
+    estimateSubmit.classList.add("is-active");
+  } else {
+    estimateSubmit.classList.remove("is-active");
   }
+}
 
   function encodeForm(data) {
     return Object.keys(data)
