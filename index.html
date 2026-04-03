@@ -748,35 +748,107 @@
 </div>
 
 <script>
+  <script>
+  const estimateForm = document.getElementById("estimateForm");
   const estimateSubmit = document.getElementById("estimateSubmit");
+  const successPopup = document.getElementById("successPopup");
+  const closeSuccessPopup = document.getElementById("closeSuccessPopup");
 
-function updateSubmitState() {
-  const fields = estimateForm.querySelectorAll("input, textarea, select");
+  function updateSubmitState() {
+    if (!estimateForm || !estimateSubmit) return;
 
-  let hasValue = false;
+    const fields = estimateForm.querySelectorAll("input, textarea, select");
+    let hasValue = false;
 
-  fields.forEach(field => {
-    if (field.name === "bot-field") return;
+    fields.forEach((field) => {
+      if (field.name === "bot-field") return;
 
-    if (field.value.trim() !== "") {
-      hasValue = true;
+      const value = typeof field.value === "string" ? field.value.trim() : "";
+      if (value !== "") {
+        hasValue = true;
+      }
+    });
+
+    if (hasValue) {
+      estimateSubmit.classList.add("is-active");
+    } else {
+      estimateSubmit.classList.remove("is-active");
+    }
+  }
+
+  function encodeForm(data) {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  function openSuccessPopup() {
+    if (!successPopup) return;
+    successPopup.classList.add("is-open");
+    successPopup.setAttribute("aria-hidden", "false");
+  }
+
+  function hideSuccessPopup() {
+    if (!successPopup) return;
+    successPopup.classList.remove("is-open");
+    successPopup.setAttribute("aria-hidden", "true");
+  }
+
+  if (estimateForm) {
+    estimateForm.addEventListener("input", updateSubmitState);
+    estimateForm.addEventListener("change", updateSubmitState);
+
+    estimateForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(estimateForm);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm(data)
+      })
+        .then(() => {
+          estimateForm.reset();
+          updateSubmitState();
+          openSuccessPopup();
+        })
+        .catch(() => {
+          alert("There was a problem sending your request. Please try again.");
+        });
+    });
+
+    updateSubmitState();
+  }
+
+  if (closeSuccessPopup) {
+    closeSuccessPopup.addEventListener("click", hideSuccessPopup);
+  }
+
+  if (successPopup) {
+    successPopup.addEventListener("click", function (e) {
+      if (e.target.classList.contains("success-popup__backdrop")) {
+        hideSuccessPopup();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      hideSuccessPopup();
     }
   });
 
-  if (hasValue) {
-    estimateSubmit.classList.add("is-active");
-  } else {
-    estimateSubmit.classList.remove("is-active");
+  const yearEl = document.getElementById("y");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
-}
-
-estimateForm.addEventListener("input", updateSubmitState);
-estimateForm.addEventListener("change", updateSubmitState);
-
-updateSubmitState();
-  const estimateForm = document.getElementById("estimateForm");
-  const successPopup = document.getElementById("successPopup");
-  const closeSuccessPopup = document.getElementById("closeSuccessPopup");
+</script>
 
   function encodeForm(data) {
     return Object.keys(data)
