@@ -28,19 +28,23 @@
       --radius: 18px;
       --max: 1040px;
     }
-    #estimateSubmit {
-  opacity: .5;
+   #estimateSubmit {
+  opacity: .45;
   cursor: not-allowed;
-  filter: grayscale(30%);
+  transition: all .25s ease;
 }
 
+/* ACTIVE = same color, just brighter + glow */
 #estimateSubmit.is-active {
   opacity: 1;
   cursor: pointer;
-  filter: none;
+  box-shadow:
+    0 0 0 1px rgba(111,243,232,.25),
+    0 8px 25px rgba(111,243,232,.25),
+    0 0 20px rgba(111,243,232,.15);
   transform: translateY(-1px);
-  box-shadow: 0 0 0 1px rgba(111,243,232,.25), 0 10px 30px rgba(111,243,232,.18);
 }
+
 
     .success-popup {
   position: fixed;
