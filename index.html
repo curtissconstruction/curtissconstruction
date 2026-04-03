@@ -671,8 +671,90 @@
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
     
+<div id="successPopup" class="success-popup" aria-hidden="true">
+  <div class="success-popup__backdrop"></div>
+  <div class="success-popup__card" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="success-popup__eyebrow">Curtiss Construction</div>
+    <h2 id="successTitle">Request received.</h2>
+    <p>
+      Thanks for reaching out to Curtiss Construction. Your request has been received, and we’ll follow up shortly.
+    </p>
+    <p>
+      In the meantime, feel free to reply with any photos, plans, or additional project details.
+    </p>
+    <div class="success-popup__actions">
+      <button type="button" class="btn primary" id="closeSuccessPopup">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const estimateForm = document.getElementById("estimateForm");
+  const successPopup = document.getElementById("successPopup");
+  const closeSuccessPopup = document.getElementById("closeSuccessPopup");
+
+  function encodeForm(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  function openSuccessPopup() {
+    successPopup.classList.add("is-open");
+    successPopup.setAttribute("aria-hidden", "false");
+  }
+
+  function hideSuccessPopup() {
+    successPopup.classList.remove("is-open");
+    successPopup.setAttribute("aria-hidden", "true");
+  }
+
+  if (estimateForm) {
+    estimateForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(estimateForm);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm(data)
+      })
+      .then(() => {
+        estimateForm.reset();
+        openSuccessPopup();
+      })
+      .catch(() => {
+        alert("There was a problem sending your request. Please try again.");
+      });
+    });
+  }
+
+  if (closeSuccessPopup) {
+    closeSuccessPopup.addEventListener("click", hideSuccessPopup);
+  }
+
+  if (successPopup) {
+    successPopup.addEventListener("click", function (e) {
+      if (e.target.classList.contains("success-popup__backdrop")) {
+        hideSuccessPopup();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      hideSuccessPopup();
+    }
+  });
+</script>
 </body>
 </html>
+
 
 
 
