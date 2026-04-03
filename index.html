@@ -28,6 +28,20 @@
       --radius: 18px;
       --max: 1040px;
     }
+    #estimateSubmit {
+  opacity: .5;
+  cursor: not-allowed;
+  filter: grayscale(30%);
+}
+
+#estimateSubmit.is-active {
+  opacity: 1;
+  cursor: pointer;
+  filter: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(111,243,232,.25), 0 10px 30px rgba(111,243,232,.18);
+}
+
     .success-popup {
   position: fixed;
   inset: 0;
@@ -532,7 +546,7 @@
           </select>
 
           <div class="submit">
-            <button class="btn primary" type="submit" style="width:100%;">Send request</button>
+            <button class="btn primary" id="estimateSubmit" type="submit" style="width:100%;">Send request</button>
           </div>
 
           <p class="mini">By submitting, you agree to be contacted about your project. No marketing list.</p>
@@ -730,6 +744,32 @@
 </div>
 
 <script>
+  const estimateSubmit = document.getElementById("estimateSubmit");
+
+function updateSubmitState() {
+  const fields = estimateForm.querySelectorAll("input, textarea, select");
+
+  let hasValue = false;
+
+  fields.forEach(field => {
+    if (field.name === "bot-field") return;
+
+    if (field.value.trim() !== "") {
+      hasValue = true;
+    }
+  });
+
+  if (hasValue) {
+    estimateSubmit.classList.add("is-active");
+  } else {
+    estimateSubmit.classList.remove("is-active");
+  }
+}
+
+estimateForm.addEventListener("input", updateSubmitState);
+estimateForm.addEventListener("change", updateSubmitState);
+
+updateSubmitState();
   const estimateForm = document.getElementById("estimateForm");
   const successPopup = document.getElementById("successPopup");
   const closeSuccessPopup = document.getElementById("closeSuccessPopup");
