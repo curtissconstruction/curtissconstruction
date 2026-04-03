@@ -15,6 +15,47 @@
   <meta property="og:image" content="https://curtissconstruction.com/og.jpg" />
   <link rel="icon" href="/favicon.ico" />
   <style>
+    .success-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.success-popup.is-open {
+  display: flex;
+}
+
+.success-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.success-popup__card {
+  position: relative;
+  background: #0c1117;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  color: white;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+.success-popup__eyebrow {
+  color: #7fd6d0;
+  font-size: 12px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.success-popup__actions {
+  margin-top: 20px;
+}
     :root{
       --bg:#000;
       --panel:#0b0b0b;
