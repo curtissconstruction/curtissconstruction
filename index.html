@@ -15,6 +15,19 @@
   <meta property="og:image" content="https://curtissconstruction.com/og.jpg" />
   <link rel="icon" href="/favicon.ico" />
   <style>
+    :root{
+      --bg:#000;
+      --panel:#0b0b0b;
+      --panel2:#111;
+      --text:#f4f4f4;
+      --muted:#b9b9b9;
+      --line:rgba(255,255,255,.10);
+      --accent:#6ef3e8; /* subtle mint, matches Netlify vibes but still classy */
+      --accent2:#ffffff;
+      --shadow: 0 12px 45px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 1040px;
+    }
     .success-popup {
   position: fixed;
   inset: 0;
@@ -56,19 +69,6 @@
 .success-popup__actions {
   margin-top: 20px;
 }
-    :root{
-      --bg:#000;
-      --panel:#0b0b0b;
-      --panel2:#111;
-      --text:#f4f4f4;
-      --muted:#b9b9b9;
-      --line:rgba(255,255,255,.10);
-      --accent:#6ef3e8; /* subtle mint, matches Netlify vibes but still classy */
-      --accent2:#ffffff;
-      --shadow: 0 12px 45px rgba(0,0,0,.55);
-      --radius: 18px;
-      --max: 1040px;
-    }
     .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
