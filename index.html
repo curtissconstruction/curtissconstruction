@@ -772,6 +772,12 @@ select:-webkit-autofill:focus {
   </div>
 </div>
 
+    window.addEventListener("pageshow", function () {
+  if (!estimateForm) return;
+  estimateForm.reset();
+  updateSubmitState();
+});
+
 <script>
   const estimateForm = document.getElementById("estimateForm");
   const estimateSubmit = document.getElementById("estimateSubmit");
