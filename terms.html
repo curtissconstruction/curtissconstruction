@@ -1,43 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Terms & Conditions | Curtiss Construction</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 20px;
-  line-height: 1.6;
-  color: #111;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions | Curtiss Construction</title>
+  <meta name="description" content="These terms explain how curtissconstruction.com may be used, how consultation requests are handled, and how communication related to project inquiries works." />
+  <style>
+:root{
+  --bg:#060606;
+  --panel:#0d0d0d;
+  --text:#f3efe8;
+  --muted:#b9b1a4;
+  --gold:#c7a56a;
+  --gold-soft:#d8bb8b;
+  --line:rgba(255,255,255,.08);
+  --shadow:0 24px 80px rgba(0,0,0,.45);
 }
-h1 { font-size: 32px; }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at top, rgba(199,165,106,.08), transparent 28%),
+    linear-gradient(180deg,#050505 0%, #070707 45%, #050505 100%);
+  color:var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.72;
+}
+a{color:inherit;text-decoration:none}
+.topbar{
+  position:sticky; top:0; z-index:30;
+  backdrop-filter: blur(18px);
+  background:rgba(5,5,5,.82);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.topbar-inner{
+  max-width:1240px; margin:0 auto; padding:16px 28px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.brand-link{display:flex; align-items:center; gap:14px; min-width:0}
+.brand-mark{
+  width:40px; height:40px; border-radius:10px;
+  display:grid; place-items:center;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,#111,#090909);
+  overflow:hidden;
+}
+.brand-mark img{width:82%; height:auto; display:block}
+.brand-copy{display:flex; flex-direction:column; gap:3px}
+.brand-name{
+  font-size:15px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:#f4efe7;
+}
+.brand-meta{font-size:12px; color:var(--muted)}
+.nav{display:flex; align-items:center; gap:22px; color:#ddd5c9; font-size:14px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:13px 22px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  color:#f3ede4; background:linear-gradient(180deg,#151515,#0e0e0e);
+  font-weight:600;
+}
+.btn.primary{
+  background:linear-gradient(180deg, rgba(199,165,106,.26), rgba(199,165,106,.14));
+  border-color:rgba(199,165,106,.38);
+}
+.hero{max-width:1240px; margin:0 auto; padding:96px 28px 40px}
+.eyebrow{
+  margin:0 0 14px;
+  color:var(--gold-soft);
+  font-size:13px; letter-spacing:.32em; text-transform:uppercase;
+}
+.hero h1{
+  margin:0; max-width:900px;
+  font-size:clamp(46px,7vw,92px);
+  line-height:.98; letter-spacing:-.05em; font-weight:650;
+}
+.hero-sub{margin:24px 0 0; max-width:760px; color:var(--muted); font-size:18px}
+.hero-actions{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap}
+.page-wrap{max-width:1240px; margin:0 auto; padding:28px 28px 90px}
+.grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr); gap:28px}
+.panel{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+    linear-gradient(180deg, #0b0b0b, #090909);
+  border:1px solid var(--line);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+.pad-xl{padding:34px}
+.section-title{margin:0 0 20px; font-size:clamp(30px,4vw,52px); line-height:1.02; letter-spacing:-.04em}
+.content h2{margin:36px 0 10px; font-size:22px; color:#faf6ef}
+.content p{margin:0 0 14px; color:#c9c0b4; font-size:16px}
+.note-card{display:grid; gap:18px}
+.note-block{
+  padding:22px; border-radius:22px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,#121212,#0d0d0d);
+}
+.note-block strong{
+  display:block; margin-bottom:8px;
+  color:#f7f1e7; font-size:13px; text-transform:uppercase; letter-spacing:.18em;
+}
+.note-block span{color:#c9c0b4; font-size:15px}
+.legal-tag{
+  display:inline-flex; align-items:center;
+  margin-top:18px; padding:10px 14px; border-radius:999px;
+  border:1px solid rgba(199,165,106,.24);
+  background:rgba(199,165,106,.08);
+  color:#e8d3ac; font-size:13px;
+}
+.footer{border-top:1px solid rgba(255,255,255,.06); margin-top:60px}
+.footer-inner{
+  max-width:1240px; margin:0 auto; padding:26px 28px 40px;
+  display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  color:#bfb5a7; font-size:14px;
+}
+.footer-links{display:flex; gap:18px; flex-wrap:wrap}
+@media (max-width:980px){
+  .grid{grid-template-columns:1fr}
+  .nav{display:none}
+  .topbar-inner{padding:14px 18px}
+  .hero{padding:76px 18px 26px}
+  .page-wrap{padding:18px 18px 72px}
+  .footer-inner{padding:24px 18px 36px}
+}
 </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-link" href="https://curtissconstruction.com" aria-label="Curtiss Construction home">
+        <span class="brand-mark"><img src="https://curtissconstruction.com/favicon.ico" alt="Curtiss Construction logo"></span>
+        <span class="brand-copy">
+          <span class="brand-name">Curtiss Construction</span>
+          <span class="brand-meta">OR CCB# 251823 • Oregon (Statewide)</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="https://curtissconstruction.com/#flagship">Flagship Project</a>
+        <a href="https://curtissconstruction.com/#about">About</a>
+        <a href="https://curtissconstruction.com/#process">Process</a>
+        <a href="https://curtissconstruction.com/#faq">FAQ</a>
+      </nav>
+      <a class="btn primary" href="https://curtissconstruction.com/#consultation">Request a Consultation</a>
+    </div>
+  </header>
 
-<h1>Terms & Conditions</h1>
+  <section class="hero">
+    <p class="eyebrow">Terms</p>
+    <h1>Clear expectations, even before the project begins.</h1>
+    <p class="hero-sub">These terms explain how curtissconstruction.com may be used, how consultation requests are handled, and how communication related to project inquiries works.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="https://curtissconstruction.com/#consultation">Request a Consultation</a>
+      <a class="btn" href="https://curtissconstruction.com">Return Home</a>
+    </div>
+  </section>
 
-<p>By submitting a consultation request through Curtiss Construction, you agree to the following terms:</p>
+  <main class="page-wrap">
+    <div class="grid">
+      <section class="panel pad-xl content">
+        <p class="eyebrow">Terms Overview</p>
+        <h2 class="section-title">The operating terms behind the consultation process and website use.</h2>
+        
+<h2>Use of This Website</h2>
+<p>By using curtissconstruction.com or submitting a consultation request, you agree to use the website for lawful purposes and to provide accurate information in connection with your inquiry.</p>
 
 <h2>Consultation Requests</h2>
-<p>Submitting a form does not guarantee project acceptance. We review each inquiry and respond accordingly.</p>
+<p>Submitting a consultation form does not guarantee project acceptance, scheduling, pricing, or service availability. Each inquiry is reviewed individually based on scope, location, timing, and overall fit.</p>
+<p>Curtiss Construction reserves the right to decline projects that do not align with current availability, standards, or service focus.</p>
 
 <h2>Communication Consent</h2>
-<p>You agree to be contacted via phone, email, or SMS regarding your project request.</p>
+<p>When a user submits a consultation request, they consent to be contacted by Curtiss Construction regarding that inquiry by phone, email, or text message.</p>
+<p>These communications are limited to project-related responses, follow-up, coordination, or related client service communication.</p>
 
-<h2>No Marketing Spam</h2>
-<p>We do not send unsolicited marketing messages. Communication is strictly related to your inquiry.</p>
+<h2>SMS Terms</h2>
+<p>If SMS communication is used, message frequency will vary based on the inquiry and project communication needs. Message and data rates may apply depending on the user’s mobile carrier and plan.</p>
+<p>Users may opt out of SMS communication at any time by replying STOP. For assistance, users may reply HELP or contact Curtiss Construction directly.</p>
 
-<h2>Message & Data Rates</h2>
-<p>Standard message and data rates may apply depending on your carrier.</p>
+<h2>Website Content</h2>
+<p>All website content, branding, written copy, and design elements displayed on curtissconstruction.com remain the property of Curtiss Construction unless otherwise stated. Content may not be reproduced or reused without written permission.</p>
 
-<h2>Opt-Out</h2>
-<p>You may opt out of SMS communication at any time by replying STOP.</p>
+<h2>No Warranties</h2>
+<p>This website and its contents are provided for general informational purposes. While Curtiss Construction makes reasonable efforts to keep content accurate and current, no warranty is made that all information will be complete, current, or error-free at all times.</p>
+
+<h2>Limitation of Liability</h2>
+<p>Curtiss Construction is not liable for indirect or consequential damages arising from the use of this website, temporary unavailability, or reliance on website content. Project-specific terms, pricing, and scope are determined separately through direct communication and formal agreements where applicable.</p>
 
 <h2>Contact</h2>
-<p>For questions, contact info@curtissconstruction.com.</p>
+<p>Questions regarding these Terms &amp; Conditions may be directed to <a href="mailto:info@curtissconstruction.com">info@curtissconstruction.com</a>.</p>
 
+        <div class="legal-tag">Last updated April 2026</div>
+      </section>
+
+      <aside class="panel pad-xl note-card">
+        
+<div class="note-block"><strong>Website Use</strong><span>Use of the site and contact form must be lawful, accurate, and tied to a genuine inquiry.</span></div>
+<div class="note-block"><strong>Project Fit</strong><span>Submitting a form starts a review process, not an automatic acceptance or booking.</span></div>
+<div class="note-block"><strong>SMS Terms</strong><span>Message frequency varies. Message and data rates may apply. Reply STOP to opt out.</span></div>
+<div class="note-block"><strong>Support</strong><span>For help, contact info@curtissconstruction.com.</span></div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2026 Curtiss Construction LLC</div>
+      <div class="footer-links">
+        <a href="https://curtissconstruction.com/privacy.html">Privacy Policy</a>
+        <a href="https://curtissconstruction.com/terms.html">Terms &amp; Conditions</a>
+        <a href="mailto:info@curtissconstruction.com">info@curtissconstruction.com</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
